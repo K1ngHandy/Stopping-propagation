@@ -33,9 +33,16 @@
 
     Array.from(document.getElementsByTagName('*')).forEach(elem => {
       elem.addEventListener('click', evt => {
-        const { id, nodeName } = evt.currentTarget
+        const {id, nodeName} = evt.currentTarget
         console.log(`Event handler firing at ${id} (${nodeName})`)
         // ADD YOUR CODE HERE FOR PROBLEMS 1, 2, 3
+        if (evt.currentTarget === button1) {
+          evt.stopPropagation();
+        } else if (evt.target === button2 && evt.currentTarget === div) {
+          evt.stopPropagation();
+        } else if (evt.target === button3 && evt.currentTarget === section) {
+          evt.stopPropagation();
+        }
       })
     })
 
